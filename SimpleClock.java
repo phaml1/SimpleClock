@@ -51,23 +51,25 @@ public class SimpleClock extends JFrame {
         }
     
         public void setTimer() {
-            while (true) {
-                time = timeFormat.format(Calendar.getInstance().getTime());
-                timeLabel.setText(time);
-    
-                day = dayFormat.format(Calendar.getInstance().getTime());
-                dayLabel.setText(day);
-    
-                date = dateFormat.format(Calendar.getInstance().getTime());
-                dateLabel.setText(date);
-    
+           // while (true) {
+//                time = timeFormat.format(Calendar.getInstance().getTime());
+//                timeLabel.setText(time);
+//
+//                day = dayFormat.format(Calendar.getInstance().getTime());
+//                dayLabel.setText(day);
+//
+//                date = dateFormat.format(Calendar.getInstance().getTime());
+//                dateLabel.setText(date);
+                ThreadClock threadClock = new ThreadClock();
+                //threadClock.run();
                 try {
+                    threadClock.run();
                     Thread.sleep(1000);
                 } catch (Exception e) {
                     e.getStackTrace();
                 }
             }
-        }
+        //}
         public static void main(String[] args) {
             new SimpleClock();
         }
